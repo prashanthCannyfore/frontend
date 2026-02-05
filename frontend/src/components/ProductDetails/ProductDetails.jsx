@@ -149,6 +149,7 @@ const ProductDetails = () => {
     useEffect(() => {
         dispatch(getSimilarProducts(product?.category));
     }, [dispatch, product, product.category]);
+    
 
     return (
         <>

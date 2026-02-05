@@ -11,14 +11,12 @@ import orderRoutes from "./routes/orderRoute.js";
 import paymentRoutes from "./routes/paymentRoute.js";
 
 const app = express();
-app.set("query parser", "extended"); 
+app.set("query parser", "extended");
 
 // Load environment variables in development
 if (process.env.NODE_ENV !== "production") {
   dotenv.config({ path: "backend/config/config.env" });
 }
-console.log("API KEY:", process.env.SENDGRID_API_KEY);
-console.log("MAIL:", process.env.SENDGRID_MAIL);
 
 // Middleware
 app.use(express.json());
@@ -36,8 +34,6 @@ app.use("/api/v1", paymentRoutes);
 app.get('/api/test', (req, res) => {
   res.json({ success: true, message: 'Proxy working!' });
 });
-
-
 
 // Error middleware (should be after all routes)
 app.use(errorMiddleware);

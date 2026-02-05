@@ -31,24 +31,33 @@ const Banner = () => {
 
   const settings = {
     autoplay: true,
-    autoplaySpeed: 3000,
-    dots: false,
+    autoplaySpeed: 4000,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     prevArrow: <PreviousBtn />,
     nextArrow: <NextBtn />,
+    dotsClass: "slick-dots custom-dots",
   };
 
   const banners = [gadgetSale, kitchenSale, poco, fashionSale, realme, oppo];
 
   return (
     <>
-      <section className="h-44 sm:h-72 w-full rounded-sm shadow relative overflow-hidden">
+      <section className="h-48 sm:h-80 w-full rounded-lg shadow-sm border border-gray-200 relative overflow-hidden bg-white">
         <Slider {...settings}>
           {banners.map((el, i) => (
-            <img draggable="false" className="h-44 sm:h-72 w-full object-cover" src={el} alt="banner" key={i} />
+            <div key={i} className="relative">
+              <img 
+                draggable="false" 
+                className="h-48 sm:h-80 w-full object-cover" 
+                src={el} 
+                alt={`banner-${i}`} 
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+            </div>
           ))}
         </Slider>
       </section>

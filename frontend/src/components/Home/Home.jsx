@@ -25,15 +25,53 @@ const Home = () => {
   return (
     <>
       <MetaData title="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!" />
+      
+      {/* Categories Navigation */}
       <Categories />
-      <main className="flex flex-col gap-3 px-2 mt-16 sm:mt-2">
-        <Banner />
-        <DealSlider title={"Discounts for You"} />
-        {!loading && <ProductSlider title={"Suggested for You"} tagline={"Based on Your Activity"} />}
-        <DealSlider title={"Top Brands, Best Price"} />
-        {!loading && <ProductSlider title={"You May Also Like..."} tagline={"Based on Your Interest"} />}
-        <DealSlider title={"Top Offers On"} />
-        {!loading && <ProductSlider title={"Don't Miss These!"} tagline={"Inspired by your order"} />}
+      
+      <main className="bg-gray-100 min-h-screen">
+        {/* Main Banner Section */}
+        <div className="px-2 sm:px-4 pt-2">
+          <Banner />
+        </div>
+
+        {/* Deal Sections */}
+        <div className="flex flex-col gap-4 px-2 sm:px-4 py-4">
+          
+          {/* Best of Electronics */}
+          <DealSlider title={"Best of Electronics"} />
+          
+          {/* Beauty, Food, Toys & more */}
+          {!loading && <ProductSlider title={"Beauty, Food, Toys & more"} tagline={"Top Deals"} />}
+          
+          {/* Sports, Healthcare & more */}
+          <DealSlider title={"Sports, Healthcare & more"} />
+          
+          {/* Home & Kitchen Essentials */}
+          {!loading && <ProductSlider title={"Home & Kitchen Essentials"} tagline={"From ₹99"} />}
+          
+          {/* Fashion Top Deals */}
+          <DealSlider title={"Fashion Top Deals"} />
+          
+          {/* Mobiles & Accessories */}
+          {!loading && <ProductSlider title={"Mobiles & Accessories"} tagline={"In Focus Now"} />}
+          
+          {/* Appliances */}
+          <DealSlider title={"TVs & Appliances"} />
+          
+          {/* Furniture */}
+          {!loading && <ProductSlider title={"Furniture"} tagline={"From Top Brands"} />}
+          
+          {/* Books */}
+          <DealSlider title={"Books"} />
+          
+          {/* Grocery */}
+          {!loading && <ProductSlider title={"Grocery"} tagline={"Now Available"} />}
+
+        </div>
+
+        {/* Footer Spacer */}
+        <div className="h-8"></div>
       </main>
     </>
   );

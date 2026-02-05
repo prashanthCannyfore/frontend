@@ -20,6 +20,8 @@ import Cart from './components/Cart/Cart';
 import Shipping from './components/Cart/Shipping';
 import OrderConfirm from './components/Cart/OrderConfirm';
 import Payment from './components/Cart/Payment';
+import PaymentSuccess from './components/Cart/PaymentSuccess';
+import PaymentFailed from './components/Cart/PaymentFailed';
 import OrderStatus from './components/Cart/OrderStatus';
 import OrderSuccess from './components/Cart/OrderSuccess';
 import MyOrders from './components/Order/MyOrders';
@@ -95,11 +97,11 @@ function App() {
         <Route path="/cart" element={<Cart />} />
 
         {/* order process */}
-        <Route path="/shipping" element={
+         <Route path="/shipping" element={
           <ProtectedRoute>
             <Shipping />
           </ProtectedRoute>
-        } ></Route>
+        } ></Route> 
 
         <Route path="/order/confirm" element={
           <ProtectedRoute>
@@ -117,6 +119,8 @@ function App() {
           </ProtectedRoute>
         } ></Route>
 
+        <Route path="/order/success" element={<PaymentSuccess />} />
+        <Route path="/payment/failed" element={<PaymentFailed />} />
         <Route path="/orders/success" element={<OrderSuccess success={true} />} />
         <Route path="/orders/failed" element={<OrderSuccess success={false} />} />
         {/* order process */}

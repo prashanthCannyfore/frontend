@@ -51,10 +51,16 @@ const Payment = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
 
-        // paymentBtn.current.disabled = true;
         setPayDisable(true);
 
         try {
+            // Validate payment data
+            if (!paymentData.amount || !paymentData.email || !paymentData.phoneNo) {
+                throw new Error('Missing payment information');
+            }
+
+            console.log('Processing payment with data:', paymentData);
+
             const config = {
                 headers: {
                     "Content-Type": "application/json",
@@ -67,56 +73,35 @@ const Payment = () => {
                 config,
             );
 
-            let info = {
-                action: "https://securegw-stage.paytm.in/order/process",
-                params: data.paytmParams
+            if (!data.success || !data.paytmParams) {
+                throw new Error('Invalid payment response from server');
             }
 
-            post(info)
+            console.log('Payment initialized successfully, redirecting to Paytm...');
 
-            // if (!stripe || !elements) return;
+            const paytmUrl = process.env.NODE_ENV === 'production' 
+                ? "https://securegw.paytm.in/order/process"
+                : "https://securegw-stage.paytm.in/order/process";
 
-            // const result = await stripe.confirmCardPayment(client_secret, {
-            //     payment_method: {
-            //         card: elements.getElement(CardNumberElement),
-            //         billing_details: {
-            //             name: user.name,
-            //             email: user.email,
-            //             address: {
-            //                 line1: shippingInfo.address,
-            //                 city: shippingInfo.city,
-            //                 country: shippingInfo.country,
-            //                 state: shippingInfo.state,
-            //                 postal_code: shippingInfo.pincode,
-            //             },
-            //         },
-            //     },
-            // });
+            let info = {
+                action: paytmUrl,
+                params: data.paytmParams
+            };
 
-            // if (result.error) {
-            //     paymentBtn.current.disabled = false;
-            //     enqueueSnackbar(result.error.message, { variant: "error" });
-            // } else {
-            //     if (result.paymentIntent.status === "succeeded") {
-
-            //         order.paymentInfo = {
-            //             id: result.paymentIntent.id,
-            //             status: result.paymentIntent.status,
-            //         };
-
-            //         dispatch(newOrder(order));
-            //         dispatch(emptyCart());
-
-            //         navigate("/order/success");
-            //     } else {
-            //         enqueueSnackbar("Processing Payment Failed!", { variant: "error" });
-            //     }
-            // }
+            post(info);
 
         } catch (error) {
-            // paymentBtn.current.disabled = false;
             setPayDisable(false);
-            enqueueSnackbar(error, { variant: "error" });
+            console.error('Payment processing error:', error);
+            
+            let errorMessage = 'Payment processing failed';
+            if (error.response?.data?.message) {
+                errorMessage = error.response.data.message;
+            } else if (error.message) {
+                errorMessage = error.message;
+            }
+            
+            enqueueSnackbar(errorMessage, { variant: "error" });
         }
     };
 
@@ -127,6 +112,15 @@ const Payment = () => {
         }
     }, [dispatch, error, enqueueSnackbar]);
 
+
+    // Validate required data before rendering
+    if (!user || !shippingInfo || !cartItems.length) {
+        return (
+            <div className="flex justify-center items-center h-64">
+                <p className="text-gray-500">Loading payment information...</p>
+            </div>
+        );
+    }
 
     return (
         <>

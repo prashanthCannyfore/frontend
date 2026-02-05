@@ -1,8 +1,6 @@
 // backend/controllers/userController.js
-
 import crypto from "crypto";
 import cloudinary from "cloudinary";
-
 import User from "../models/userModel.js";
 import asyncErrorHandler from "../middlewares/asyncErrorHandler.js";
 import sendToken from "../utils/sendToken.js";
@@ -29,13 +27,13 @@ export const registerUser = asyncErrorHandler(async (req, res, next) => {
     gender,
     password,
     avatar: {
-      public_id: myCloud.public_id,
+      public_id: myCloud.public_id, 
       url: myCloud.secure_url,
     },
   });
 
   sendToken(user, 201, res);
-});
+}); 
 
 // Login User
 export const loginUser = asyncErrorHandler(async (req, res, next) => {

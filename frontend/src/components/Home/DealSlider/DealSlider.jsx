@@ -42,21 +42,26 @@ export const settings = {
 
 const DealSlider = ({ title }) => {
     return (
-        <section className="bg-white w-full shadow overflow-hidden">
-            {/* <!-- header --> */}
-            <div className="flex px-6 py-3 justify-between items-center">
-                <h1 className="text-xl font-medium">{title}</h1>
-                <Link to="/products" className="bg-primary-blue text-xs font-medium text-white px-5 py-2.5 rounded-sm shadow-lg">VIEW ALL</Link>
+        <section className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+            {/* Header */}
+            <div className="flex px-6 py-4 justify-between items-center border-b border-gray-100">
+                <h1 className="text-xl font-semibold text-gray-800">{title}</h1>
+                <Link 
+                    to="/products" 
+                    className="bg-blue-600 hover:bg-blue-700 text-xs font-semibold text-white px-6 py-2.5 rounded-md shadow-sm transition-colors duration-200 uppercase tracking-wide"
+                >
+                    View All
+                </Link>
             </div>
-            <hr />
-            {/* <!-- header --> */}
 
+            {/* Products Slider */}
+            <div className="p-4">
                 <Slider {...settings}>
                     {getRandomProducts(offerProducts, 12).map((item, i) => (
                         <Product {...item} key={i} />
                     ))}
                 </Slider>
-
+            </div>
         </section>
     );
 };
