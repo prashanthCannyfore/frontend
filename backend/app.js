@@ -12,8 +12,8 @@ import paymentRoutes from "./routes/paymentRoute.js";
 
 const app = express();
 app.set("query parser", "extended");
+  
 
-// Load environment variables in development
 if (process.env.NODE_ENV !== "production") {
   dotenv.config({ path: "backend/config/config.env" });
 }
