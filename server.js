@@ -57,8 +57,12 @@ cloudinary.v2.config({
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 
-    app.get('/*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+    app.use((req, res, next) => {
+        if (!req.path.startsWith('/api')) {
+            res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+        } else {
+            next();
+        }
     });
 } else {
     app.get('/', (req, res) => {
