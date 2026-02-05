@@ -38,22 +38,6 @@ cloudinary.v2.config({
 // ----------------------------
 // 7️⃣ Deployment / Serving Frontend
 // ----------------------------
-// if (process.env.NODE_ENV === 'production') {
-//     app.use(express.static(path.join(__dirname, 'frontend', 'build')));
-
-//     app.use((req, res, next) => {
-//         if (!req.path.startsWith('/api')) {
-//             res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
-//         } else {
-//             next();
-//         }
-//     });
-// } else {
-//     app.get('/', (req, res) => {
-//         res.send('Server is Running! 🚀');
-//     });
-// }   
-
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'frontend', 'build')));
 
@@ -68,7 +52,8 @@ if (process.env.NODE_ENV === 'production') {
     app.get('/', (req, res) => {
         res.send('Server is Running! 🚀');
     });
-}
+}   
+
 // ----------------------------
 // 8️⃣ Start Server
 // ----------------------------
