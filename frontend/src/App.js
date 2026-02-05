@@ -96,12 +96,12 @@ function App() {
 
         <Route path="/cart" element={<Cart />} />
 
-        {/* order process */}
+        {/* order process
          <Route path="/shipping" element={
           <ProtectedRoute>
             <Shipping />
           </ProtectedRoute>
-        } ></Route> 
+        } ></Route>  */}
 
         <Route path="/order/confirm" element={
           <ProtectedRoute>
