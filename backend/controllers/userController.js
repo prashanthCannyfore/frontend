@@ -45,7 +45,6 @@ export const loginUser = asyncErrorHandler(async (req, res, next) => {
 
 
   const user = await User.findOne({ email }).select("+password");
-  console.log("dddd", user);
 
 
   if (!user) {
@@ -106,9 +105,7 @@ export const forgotPassword = asyncErrorHandler(async (req, res, next) => {
       data: { reset_url: resetPasswordUrl },
     });
 
-    console.log("SENDGRID_API_KEY:", process.env.SENDGRID_API_KEY);
-    console.log("SENDGRID_MAIL:", process.env.SENDGRID_MAIL);
-    console.log("Reset URL:", resetPasswordUrl);
+
 
 
     res.status(200).json({
