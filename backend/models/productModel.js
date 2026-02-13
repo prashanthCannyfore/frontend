@@ -21,7 +21,7 @@ const reviewSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { _id: false } // Optional: avoids creating an _id for each review
+  { timestamps: true } // Changed from _id: false to add _id and timestamps
 );
 
 // Sub-schema for specifications

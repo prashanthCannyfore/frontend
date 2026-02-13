@@ -88,9 +88,9 @@ const ReviewsTable = () => {
 
     const rows = [];
 
-    reviews && reviews.forEach((rev) => {
+    reviews && reviews.forEach((rev, index) => {
         rows.push({
-            id: rev._id,
+            id: rev._id || `review-${index}`,  
             rating: rev.rating,
             comment: rev.comment,
             user: rev.name,

@@ -27,12 +27,12 @@ const Home = () => {
       <MetaData title="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!" />
       
       {/* Categories Navigation */}
-      <Categories />
+      {/* <Categories /> */}
       
       <main className="bg-gray-100 min-h-screen">
         {/* Main Banner Section */}
         <div className="px-2 sm:px-4 pt-2">
-          <Banner />
+          {/* <Banner /> */}
         </div>
 
         {/* Deal Sections */}

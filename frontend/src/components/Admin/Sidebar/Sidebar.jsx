@@ -97,7 +97,7 @@ const Sidebar = ({ activeTab, setToggleSidebar }) => {
                                     <span>{label}</span>
                                 </button>
                             ) : (
-                                <Link to={ref} className={`${activeTab === index ? "bg-gray-700" : "hover:bg-gray-700"} flex gap-3 items-center py-3 px-4 font-medium`}>
+                                <Link to={ref} className={`${activeTab === index ? "bg-gray-700" : "hover:bg-gray-700"} hover:bg-gray-700 flex gap-3 items-center py-3 px-4 font-mediumflex gap-3 items-center py-3 px-4 font-medium`}>
                                     <span>{icon}</span>
                                     <span>{label}</span>
                                 </Link>
@@ -109,10 +109,10 @@ const Sidebar = ({ activeTab, setToggleSidebar }) => {
             </div>
 
             <div className="flex flex-col gap-1 bg-gray-700 p-3 rounded-lg shadow-lg mb-6 mt-28 mx-3.5 overflow-hidden">
-                <h5>Developed with ❤️ by:</h5>
+                <h5>Developed by:</h5>
                 <div className="flex flex-col gap-0">
-                    <a href="https://www.linkedin.com/in/jigar-sable" target="_blank" rel="noreferrer" className="font-medium text-lg hover:text-blue-500">Jigar Sable</a>
-                    <a href="mailto:jigarsable21@gmail.com" className="text-gray-300 text-sm hover:text-blue-500">jigarsable21@gmail.com</a>
+                    <a href="www.linkedin.com/in/prashanth-v-bb811120b" target="_blank" rel="noreferrer" className="font-medium text-lg hover:text-blue-500">prasahnth kumar v</a>
+                    <a href="mailto:prasahnthv6777@gmail.com" className="text-gray-300 text-sm hover:text-blue-500">prasahnthv6777@gmail.com</a>
                 </div>
             </div>
         </aside>

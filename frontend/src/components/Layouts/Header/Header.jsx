@@ -18,6 +18,12 @@ const Header = () => {
   const [togglePrimaryDropDown, setTogglePrimaryDropDown] = useState(false);
   const [toggleSecondaryDropDown, setToggleSecondaryDropDown] = useState(false);
 
+  const handlePrimaryMouseEnter = () => setTogglePrimaryDropDown(true);
+  const handlePrimaryMouseLeave = () => setTogglePrimaryDropDown(false);
+  
+  const handleSecondaryMouseEnter = () => setToggleSecondaryDropDown(true);
+  const handleSecondaryMouseLeave = () => setToggleSecondaryDropDown(false);
+
   return (
 
     <header className="bg-primary-blue fixed top-0 py-2.5 w-full z-10">
@@ -42,19 +48,23 @@ const Header = () => {
             <Link to="/login" className="px-3 sm:px-9 py-0.5 text-primary-blue bg-white border font-medium rounded-sm cursor-pointer">Login</Link>
             :
             (
-              <span className="userDropDown flex items-center text-white font-medium gap-1 cursor-pointer" onClick={() => setTogglePrimaryDropDown(!togglePrimaryDropDown)}>{user.name && user.name.split(" ", 1)}
-                <span>{togglePrimaryDropDown ? <ExpandLessIcon sx={{ fontSize: "16px" }} /> : <ExpandMoreIcon sx={{ fontSize: "16px" }} />}</span>
-              </span>
+              <div onMouseEnter={handlePrimaryMouseEnter} onMouseLeave={handlePrimaryMouseLeave}>
+                <span className="userDropDown flex items-center text-white font-medium gap-1 cursor-pointer">{user.name && user.name.split(" ", 1)}
+                  <span>{togglePrimaryDropDown ? <ExpandLessIcon sx={{ fontSize: "16px" }} /> : <ExpandMoreIcon sx={{ fontSize: "16px" }} />}</span>
+                </span>
+                {togglePrimaryDropDown && <PrimaryDropDownMenu setTogglePrimaryDropDown={setTogglePrimaryDropDown} user={user} />}
+              </div>
             )
           }
-  
-          {togglePrimaryDropDown && <PrimaryDropDownMenu setTogglePrimaryDropDown={setTogglePrimaryDropDown} user={user} />}
 
-          <span className="moreDropDown hidden sm:flex items-center text-white font-medium gap-1 cursor-pointer" onClick={() => setToggleSecondaryDropDown(!toggleSecondaryDropDown)}>More
-            <span>{toggleSecondaryDropDown ? <ExpandLessIcon sx={{ fontSize: "16px" }} /> : <ExpandMoreIcon sx={{ fontSize: "16px" }} />}</span>
-          </span>
-
-          {toggleSecondaryDropDown && <SecondaryDropDownMenu />}
+          <div>
+            <div onMouseEnter={handleSecondaryMouseEnter} onMouseLeave={handleSecondaryMouseLeave}>
+            <span className="moreDropDown hidden sm:flex items-center text-white font-medium gap-1 cursor-pointer padding-10px">More
+              <span>{toggleSecondaryDropDown ? <ExpandLessIcon sx={{ fontSize: "16px" }} /> : <ExpandMoreIcon sx={{ fontSize: "16px" }} />}</span>
+            </span>
+            {toggleSecondaryDropDown && <SecondaryDropDownMenu />}
+          </div>
+          </div>
 
           <Link to="/cart" className="flex items-center text-white font-medium gap-2 relative">
             <span><ShoppingCartIcon /></span>
