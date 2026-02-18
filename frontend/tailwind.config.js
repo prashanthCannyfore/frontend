@@ -26,15 +26,16 @@ module.exports = {
       indigo: colors.indigo,
       purple: colors.violet,
       pink: colors.pink,
-      // custom colors
+      // Amazon color scheme
       primary: {
-        blue: '#2874f0',
-        lightGreen: '#14be47',
-        green: '#388e3c',
-        yellow: '#ff9f00',
-        orange: '#fb641b',
-        darkBlue: '#172337',
-        grey: '#878787',
+        dark: '#131921',        // Amazon dark blue/black (header)
+        orange: '#FF9900',      // Amazon orange (logo, buttons)
+        lightOrange: '#FEBD69', // Light orange (hover)
+        yellow: '#F3A847',      // Amazon yellow
+        blue: '#007185',        // Amazon teal blue (links)
+        lightBlue: '#C7E1E8',   // Light blue (backgrounds)
+        grey: '#565959',        // Dark grey (text)
+        lightGrey: '#EAEDED',   // Light grey (backgrounds)
       },
     },
     spacing: {

@@ -131,11 +131,11 @@ function App() {
           </ProtectedRoute>
         } ></Route>
 
-        <Route path="/orders" element={
+        {/* <Route path="/orders" element={
           <ProtectedRoute>
             <MyOrders />
           </ProtectedRoute>
-        }></Route>
+        }></Route> */}
 
         <Route path="/order_details/:id" element={
           <ProtectedRoute>

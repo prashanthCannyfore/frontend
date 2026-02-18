@@ -32,7 +32,7 @@ const Home = () => {
       <main className="bg-gray-100 min-h-screen">
         {/* Main Banner Section */}
         <div className="px-2 sm:px-4 pt-2">
-          {/* <Banner /> */}
+          <Banner />
         </div>
 
         {/* Deal Sections */}

@@ -122,7 +122,7 @@ const Footer = () => {
     <>
       {!adminRoute && (
         <>
-          <footer className="mt-20 w-full py-1 sm:py-4 px-4 sm:px-12 bg-primary-darkBlue text-white text-xs border-b border-gray-600 flex flex-col sm:flex-row overflow-hidden">
+          <footer className="mt-20 w-full py-1 sm:py-4 px-4 sm:px-12 bg-primary-dark text-white text-xs border-b border-gray-600 flex flex-col sm:flex-row overflow-hidden">
             <div className="w-full sm:w-7/12 flex flex-col sm:flex-row">
 
               {footerLinks.map((el, i) => (
@@ -167,7 +167,7 @@ const Footer = () => {
           </footer>
           {/* <!-- footer ends --> */}
 
-          <div className="px-16 py-6 w-full bg-primary-darkBlue hidden sm:flex justify-between items-center text-sm text-white">
+          <div className="px-16 py-6 w-full bg-primary-dark hidden sm:flex justify-between items-center text-sm text-white">
             <a href="https://seller.flipkart.com/sell-online" target="_blank" rel="noreferrer" className="flex items-center gap-2">
               <span className="text-yellow-400"><WorkIcon sx={{ fontSize: "20px" }} /></span> Sell On Flipkart
             </a>

@@ -26,7 +26,7 @@ const Header = () => {
 
   return (
 
-    <header className="bg-primary-blue fixed top-0 py-2.5 w-full z-10">
+    <header className="bg-primary-dark fixed top-0 py-2.5 w-full z-10">
 
       {/* <!-- navbar container --> */}
       <div className="w-full sm:w-[80%] px-1 sm:px-4 m-auto flex justify-between items-center relative">
@@ -45,7 +45,7 @@ const Header = () => {
         <div className="flex items-center justify-between ml-1 sm:ml-0 gap-0.5 sm:gap-7 relative">
 
           {isAuthenticated === false ?
-            <Link to="/login" className="px-3 sm:px-9 py-0.5 text-primary-blue bg-white border font-medium rounded-sm cursor-pointer">Login</Link>
+            <Link to="/login" className="px-3 sm:px-9 py-0.5 text-primary-dark bg-primary-orange hover:bg-primary-lightOrange border font-medium rounded-sm cursor-pointer">Login</Link>
             :
             (
               <div onMouseEnter={handlePrimaryMouseEnter} onMouseLeave={handlePrimaryMouseLeave}>
